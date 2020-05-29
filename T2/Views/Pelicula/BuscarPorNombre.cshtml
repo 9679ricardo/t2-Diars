@@ -1,0 +1,21 @@
+﻿
+@{
+    @Layout= null;
+}
+
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="" alt="..." style="width:200px;height:300px">
+            <div class="caption">
+                <h3>@item.Nombre</h3>
+                <p>@item.Director</p>
+                <p><a href="/Pelicula/Detalle?id=@item.Id_Pelicula" class="btnLibroAdd btn btn-danger">Detalle</a></p>
+            </div>
+        </div>
+    </div>
+}

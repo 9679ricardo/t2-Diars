@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h2>Crear</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="row">
+                <form action="/Pelicula/Crear" method="post" enctype="multipart/form-data">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center"><h3>Crear pelicula</h3></div>
+                        <div class="panel-body">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+
+                                <div>
+                                    <label class="control-label">Codigo :</label>
+                                    <input class="form-control" type="text" name="Codigo" value="@Model.Codigo" />
+                                    @Html.ValidationMessage("Codigo")
+                                </div>
+                                <div>
+                                    <label class="control-label">Nombre :</label>
+                                    <input class="form-control" type="text" name="Nombre" value="@Model.Nombre" />
+                                    @Html.ValidationMessage("Nombre")
+                                </div>
+                                <div>
+                                    <label class="control-label">Director :</label>
+                                    <select name="Director" class="form-control">
+                                        <option value="--Seleccione--">--Seleccione--</option>
+                                        <option value="Martin Scorsese">Martin Scorsese</option>
+                                        <option value="Quentin Tarantino">Quentin Tarantino</option>
+                                        <option value="David Lynch">David Lynch</option>
+                                    </select>
+                                    @Html.ValidationMessage("Director")
+                                </div>
+
+                                <div>
+                                    <label class="control-label">Año :</label>
+                                    <select name="Anio" class="form-control">
+                                        <option value="--Seleccione--">--Seleccione--</option>
+                                        @for (var i = 2020; i >= 1990; i--)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                    @Html.ValidationMessage("Anio")
+                                </div>
+
+                                <br />
+                                <div class="panel-body">
+                                    <button class="btn btn-primary pull-right"> Guardar</button>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4"></div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+                    </div>
+            </div>
+
+              
+
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+</div>

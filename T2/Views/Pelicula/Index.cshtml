@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <label class="control-label">Buscar por nombre : </label>
+            <input type="text" id="query" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <br />
+            <button id="btnBuscar" class="btn btn-success">Buscar</button>
+        </div>
+        <div class="col-md-2">
+            <br />
+            <select id="favorita">
+                <option>--Seleccione--</option>
+                <option>Todas</option>
+                <option>Favoritas</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <br />
+            <a href="/Pelicula/Crear" class="btn btn-info">Crear pelicula</a>
+        </div>
+    </div>
+
+
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div id="peliculas" class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="" alt="..." style="width:200px;height:300px">
+                            <div class="caption">
+                                <h3>@item.Nombre</h3>
+                                <p>@item.Director</p>
+                                <p><a href="/Pelicula/Detalle?id=@item.Id_Pelicula" class="btnLibroAdd btn btn-danger">Detalle</a></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        //alert($this.attr("id"));//obtener el atributo id
+        $("#btnBuscar").click(function (e) {
+            alert(1);
+            e.preventDefault();
+            var valor = $("#query").val();
+            $.ajax({ url: "/Pelicula/BuscarPorNombre?query=" + valor })
+                .success(function (resp) {
+                    $("#peliculas").html(resp);
+                    alert(1);
+                });
+        });
+    </script>

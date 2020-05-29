@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "MarcarComoFavorita";
+}
+
+<h2>MarcarComoFavorita a la pelicula @Model.Nombre</h2>
+
+<div>
+    <a class="btn btn-primary" href="/Pelicula/Index">Omitir</a>
+    <a class="btn btn-success"  href="/Pelicula/MarcarFavorita?id=@Model.Id_Pelicula">Marcar como favorita</a>
+</div>
+
